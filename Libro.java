@@ -21,4 +21,20 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
     }
+    // Devuelve el autor del libro
+    private String getAutorDelLibro(){
+        return autor;
+    }
+    // Devuelve el titulo del libro
+    private String getTituloDelLibro(){
+        return titulo;
+    }
+    // Imprime por pantalla el autor
+    private void imprimeAutor(){
+        System.out.println(autor);
+    } 
+    // Imprime por pantalla el titulo
+    private void imprimeTitulo(){
+        System.out.println(titulo);
+    } 
 }
