@@ -13,6 +13,7 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -22,6 +23,7 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
+        numeroReferencia = "";
     }
     // Devuelve el autor del libro
     public String getAutorDelLibro(){
@@ -43,13 +45,38 @@ public class Libro {
     public int getNumeroDePaginas(){
         return numeroPaginas;
     }
-    
+    // Imprime por pantalla los detalles del libro
     public void imprimirDetalles(){
-        System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas);
+        if (numeroReferencia == ""){
+            System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ") ;
+        }
+        else{
+            System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia);
+        }        
     } 
-    
+    // Devuelve los detalles del libro
     public String getDetalles(){
-        String getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas);
+        String getDetalles;
+        if (numeroReferencia == ""){
+            getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ") ;
+        }
+        else{
+            getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia);
+        }   
         return getDetalles;
     }
+    // Introduce el numero de referencia
+    public void setNumeroReferencia(String introducirNumeroDeReferencia){
+        if (introducirNumeroDeReferencia.length() >= 3){
+            numeroReferencia = introducirNumeroDeReferencia;
+        }
+        else {
+            System.out.println("Error. El número de referencia es menor de 3 cifras");
+        }
+    }
+    // Devuelve el numero de referencia
+    public String getNumeroReferencia(){
+        return numeroReferencia;
+    }
+    
 }
