@@ -15,17 +15,19 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, boolean esUnLibroDeTexto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
         vecesPrestado = 0;
+        esLibroDeTexto = esUnLibroDeTexto;
     }
     // Devuelve el autor del libro
     public String getAutorDelLibro(){
@@ -38,10 +40,12 @@ public class Libro {
     // Imprime por pantalla el autor
     public void imprimeAutor(){
         System.out.println(autor);
+        System.out.println();
     } 
     // Imprime por pantalla el titulo
     public void imprimeTitulo(){
         System.out.println(titulo);
+        System.out.println();
     } 
     // Devulve el numero de paginas que tiene el libro
     public int getNumeroDePaginas(){
@@ -49,22 +53,53 @@ public class Libro {
     }
     // Imprime por pantalla los detalles del libro
     public void imprimirDetalles(){
-        if (numeroReferencia == ""){
-            System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado);
+        String castellano;
+        if (esLibroDeTexto == true){
+            castellano = "Sí";
+            if (numeroReferencia == ""){
+                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+                System.out.println();
+            }
+            else{
+                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+                System.out.println();
+            }
         }
         else{
-            System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado);
-        }        
+            castellano = "No";
+            if (numeroReferencia == ""){
+                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+                System.out.println();
+            }
+            else{
+                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+                System.out.println();
+            }
+        }
+            
     } 
     // Devuelve los detalles del libro
     public String getDetalles(){
+        String castellano;
         String getDetalles;
-        if (numeroReferencia == ""){
-            getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado) ;
+        if (esLibroDeTexto == true){
+            castellano = "Sí";
+            if (numeroReferencia == ""){
+                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+            }
+            else{
+                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+            }
         }
         else{
-            getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado);
-        }   
+            castellano = "No";
+            if (numeroReferencia == ""){
+                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+            }
+            else{
+                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+            }
+        }
         return getDetalles;
     }
     // Introduce el numero de referencia
@@ -74,6 +109,7 @@ public class Libro {
         }
         else {
             System.out.println("Error. El número de referencia es menor de 3 cifras");
+            System.out.println();
         }
     }
     // Devuelve el numero de referencia
@@ -88,4 +124,8 @@ public class Libro {
     public int getNumeroDeVecesPrestado(){
         return vecesPrestado;
     }    
+    // Devuelve si es un libro de texto o no
+    public boolean getEsUnLibroDeTexto(){
+        return esLibroDeTexto;
+    }
 }
