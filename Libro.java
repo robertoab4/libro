@@ -54,52 +54,40 @@ public class Libro {
     // Imprime por pantalla los detalles del libro
     public void imprimirDetalles(){
         String castellano;
+        String numeroDeReferencia;
         if (esLibroDeTexto == true){
             castellano = "Sí";
-            if (numeroReferencia == ""){
-                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-                System.out.println();
-            }
-            else{
-                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-                System.out.println();
-            }
         }
         else{
             castellano = "No";
-            if (numeroReferencia == ""){
-                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-                System.out.println();
-            }
-            else{
-                System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-                System.out.println();
-            }
         }
-            
+        if (numeroReferencia == ""){
+            numeroDeReferencia = "ZZZ";
+        }
+        else{
+            numeroDeReferencia = numeroReferencia;
+        }
+        System.out.println("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroDeReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
+        System.out.println();
     } 
     // Devuelve los detalles del libro
     public String getDetalles(){
         String castellano;
+        String numeroDeReferencia;
         String getDetalles;
         if (esLibroDeTexto == true){
             castellano = "Sí";
-            if (numeroReferencia == ""){
-                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-            }
-            else{
-                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-            }
         }
         else{
             castellano = "No";
-            if (numeroReferencia == ""){
-                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: ZZZ" + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-            }
-            else{
-                getDetalles = ("Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano);
-            }
         }
+        if (numeroReferencia == ""){
+            numeroDeReferencia = "ZZZ";
+        }
+        else{
+            numeroDeReferencia = numeroReferencia;
+        }
+        getDetalles = "Título: " + titulo + " | Autor: " + autor + " | Número de páginas: " + numeroPaginas + " Numero de referencia: " + numeroDeReferencia + " | Número de veces prestado: " + vecesPrestado + " | Es un libro de texto: " + castellano;
         return getDetalles;
     }
     // Introduce el numero de referencia
